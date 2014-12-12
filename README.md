@@ -21,10 +21,21 @@ There are objects for:
 * Releases
 * Master Releases
 ```
-d = discogsPy3.Client(user_agent,consumer_key,consumer_secret)
+d = discogsPy3.Client(consumer_key,consumer_secret,user_agent)
 d.set_access_token()
 ```
-##To get an artist by their site id:
+To get an artist by their site id:
 `fot = d.artist_by_id(381567)`
 
-## To get an artist by their name
+To get an artist by their name
+`thrice = d.artist_by_name('thrice')`
+
+Once you have an artist, you can access their information like normal attributes:
+```
+>>> thrice.name
+'Thrice'
+>>> thrice.id
+261347
+>>> thrice.profile
+'American rock band from Irvine, California, formed in 1998. Following their spring 2012 tour, the band went on hiatus.'
+```
