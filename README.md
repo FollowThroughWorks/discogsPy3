@@ -15,16 +15,16 @@ requires oauth1forpy3
       * call Client.set_access_token() and it will use the consumer key and secret to acquire them
       * (if you want to then get the access token and secret for further use, call .access_token and .access_token_secret)
 
-### Accessing discogs info
+# Accessing discogs info
 There are objects for:
 * Artists
 * Releases
 * Master Releases
-'''
+```
 d = discogsPy3.Client(user_agent,consumer_key,consumer_secret)
 d.set_access_token()
-'''
-#### To get an artist by their site id:
-'fot = d.artist_by_id(381567)'
+```
+##To get an artist by their site id:
+`fot = d.artist_by_id(381567)`
 
-#### To get an artist by their name
+## To get an artist by their name
