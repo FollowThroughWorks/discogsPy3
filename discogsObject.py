@@ -27,6 +27,26 @@ class Artist(DiscogsObject):
                 pass
         return final_releases
 
+    def group_list(self):
+        final_groups = []
+        for item in self.groups:
+            try:
+                new_group = self.client.artist_by_id(item['id'])
+                final_groups.append(new_group)
+            except:
+                pass
+        return final_groups
+
+    def member_list(self):
+        final_members = []
+        for item in self.members:
+            try:
+                new_member = self.client.artist_by_id(item['id'])
+                final_members.append(new_member)
+            except:
+                pass
+        return final_members
+
 
 class Master(DiscogsObject):
     def __init__(self,page,client):
