@@ -9,7 +9,7 @@ class Client(oauth1forpy3.Client):
     verification_url = r"http://discogs.com/oauth/authorize?oauth_token="
     base_url = r"https://api.discogs.com/"
 
-    def __init__(self,key,secret,user_agent,callback=''):
+    def __init__(self,user_agent,key='',secret='',callback=''):
         oauth1forpy3.Client.__init__(self,key,secret,user_agent,Client.request_url,Client.access_url,Client.verification_url)
 
     def release_by_id(self,id):
