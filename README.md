@@ -64,17 +64,17 @@ To retrieve groups they've performed in, as Artist objects, call the group_list(
 ```
 
 A list of Artist properties and methods:
-* name - the artist's/band's name
-* profile - a description of the artist
-* urls - a list of the artist's web pages
-* members - a list comprised of a dictionary of info for each member
-* member_list() - a list of Artist objects for each member
-* groups - a list comprised of a dictionary of info for each group the artist has performed with
-* member_list() - a list of Artist objects for each group the artist has performed with
-* namevariations - variations of the artist's name
-* images - a list comprised of a dictionary of info for each image associated with the artist
-* data - A dictionary of the information provided by discogs.com
-* resource_url - where the discogs.com info can be found
+* **name** - the artist's/band's name
+* **profile** - a description of the artist
+* **urls** - a list of the artist's web pages
+* **members** - a list comprised of a dictionary of info for each member
+* **member_list()** - a list of Artist objects for each member
+* **groups** - a list comprised of a dictionary of info for each group the artist has performed with
+* **member_list()** - a list of Artist objects for each group the artist has performed with
+* **namevariations** - variations of the artist's name
+* **images** - a list comprised of a dictionary of info for each image associated with the artist
+* **data** - A dictionary of the information provided by discogs.com
+* **resource_url** - where the discogs.com info can be found
 
 #### Releases
 Works similarly to artists:
