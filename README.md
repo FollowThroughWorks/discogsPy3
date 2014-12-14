@@ -4,26 +4,32 @@ discogsPy3
 Library for using the discogs API with Python 
 requires oauth1forpy3 
 
-### Creating the authenticated connection to discogs:
-  1. Create an instance of the Client object. You must have:
-      * a consumer key and secret, received from the site you're accessing
-      * a user agent
+### Creating the (optionally authenticated) connection to discogs:
+  1. Create an instance of the Client object:
+      * You must have a user agent, preferably following [RFC 1945](http://tools.ietf.org/html/rfc1945#section-3.7)
+      * If you are searching or using user information you must also included the consumer key and secret
+```
+d = discogsPy3.Client(user_agent,consumer_key,consumer_secret) # Consumer key and secret are optional
+```
   2. 
      1. If you already have an access key and secret:
       * Client.set_access_token(your key,your secret)
      2. Else 
       * call Client.set_access_token() and it will use the consumer key and secret to acquire them
       * (if you want to then get the access token and secret for further use, call .access_token and .access_token_secret)
-
+```
+>>d.set_access_token() 
+>>d.access_token
+your access token
+>>d.access_token_secret
+your access token secret
+```
 ### Accessing discogs info
 There are objects for:
 * Artists
 * Releases
 * Master Releases
-```
-d = discogsPy3.Client(consumer_key,consumer_secret,user_agent)
-d.set_access_token()
-```
+* 
 #### Artists
 To get an artist by their site id:
 ```
