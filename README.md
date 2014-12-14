@@ -26,10 +26,13 @@ d.set_access_token()
 ```
 #### Artists
 To get an artist by their site id:
-`fot = d.artist_by_id(381567)`
-
+```
+fot = d.artist_by_id(381567)`
+```
 To get an artist by their name:
-`thrice = d.artist_by_name('thrice')`
+```
+dep = d.artist_by_name("the dillinger escape plan")
+```
 
 Once you have an artist, you can access their information like normal attributes:
 ```
@@ -42,7 +45,6 @@ Once you have an artist, you can access their information like normal attributes
 ```
 To retrieve their releases, as Release objects, call the releases() method:
 ```
->>> tsosis = d.artist_by_name('the speed of sound in seawater')
 >>> tsosis_releases = tsosis.releases()
 >>> for release in tsosis_releases:
 	print(str(release.year) + " - " + release.title)
@@ -50,6 +52,29 @@ To retrieve their releases, as Release objects, call the releases() method:
 2009 - Blue Version
 2010 - Red Version
 ```
+To retrieve their members, as Artist objects, call the member_list() method:
+```
+[member.name for member in destinys_child.member_list()]
+['Beyoncé Knowles', 'Farrah Franklin', 'Kelly Rowland', 'Latavia Roberson', 'Letoya Luckett', 'Michelle Williams']
+```
+To retrieve groups they've performed in, as Artist objects, call the group_list() method:
+```
+[group.name for group in chris_pennie.group_list()]
+['Coheed And Cambria', 'Dillinger Escape Plan, The']
+```
+
+A list of Artist properties and methods:
+* name - the artist's/band's name
+* profile - a description of the artist
+* urls - a list of the artist's web pages
+* members - a list comprised of a dictionary of info for each member
+* member_list() - a list of Artist objects for each member
+* groups - a list comprised of a dictionary of info for each group the artist has performed with
+* member_list() - a list of Artist objects for each group the artist has performed with
+* namevariations - variations of the artist's name
+* images - a list comprised of a dictionary of info for each image associated with the artist
+* data - A dictionary of the information provided by discogs.com
+* resource_url - where the discogs.com info can be found
 
 #### Releases
 Works similarly to artists:
