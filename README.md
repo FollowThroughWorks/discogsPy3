@@ -29,7 +29,7 @@ There are objects for:
 * Artists
 * Releases
 * Master Releases
-* 
+
 #### Artists
 To get an artist by their site id:
 ```
