@@ -19,9 +19,9 @@ d = discogsPy3.Client(user_agent,consumer_key,consumer_secret) # Consumer key an
       * (if you want to then get the access token and secret for further use, call .access_token and .access_token_secret)
 ```
 >>d.set_access_token() 
->>d.access_token
+>> d.access_token
 your access token
->>d.access_token_secret
+>> d.access_token_secret
 your access token secret
 ```
 ### Accessing discogs info
@@ -85,8 +85,9 @@ A list of Artist properties and methods:
 #### Releases
 Works similarly to artists:
 To get by site id:
-`fot = d.release_by_id(381567)`
-
+```
+first_temple = d.release_by_id(2692576)
+```
 Once you have a release, you can access its information like normal attributes:
 ```
 >>> CLPPNG.title
