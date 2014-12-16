@@ -73,6 +73,7 @@ A list of Artist properties and methods:
 * **name** - the artist's/band's name
 * **profile** - a description of the artist
 * **urls** - a list of the artist's web pages
+* **releases()** - a list of the artist's releases as Release objects
 * **members** - a list comprised of a dictionary of info for each member
 * **member_list()** - a list of Artist objects for each member
 * **groups** - a list comprised of a dictionary of info for each group the artist has performed with
@@ -80,11 +81,11 @@ A list of Artist properties and methods:
 * **namevariations** - variations of the artist's name
 * **images** - a list comprised of a dictionary of info for each image associated with the artist
 * **data** - A dictionary of the information provided by discogs.com
+* **id** - The artist id on discogs.com
 * **resource_url** - where the discogs.com info can be found
 
 #### Releases
-Works similarly to artists:
-To get by site id:
+To get a release by site id:
 ```
 first_temple = d.release_by_id(2692576)
 ```
@@ -114,3 +115,15 @@ To retrieve a list of artists as Artist objects (in case multiple worked on a re
 By The End Of Tonight
 Tera Melos
 ```
+#### Labels
+
+A list of Label properties and methods:
+* **name** - the label's name
+* **profile** - a description of the label
+* **contact_info** - the label's contact info
+* **urls** - a list of the label's web pages
+* **releases()** - a list of the label's releases as Release objects
+* **images** - a list comprised of a dictionary of info for each image associated with the artist
+* **data** - A dictionary of the information provided by discogs.com
+* **id** - The label id on discogs.com
+* **resource_url** - where the discogs.com info can be found
