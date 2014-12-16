@@ -30,3 +30,6 @@ class Client(oauth1forpy3.Client):
         except(IndexError):
             print("No result found")
             return None
+
+    def label_by_id(self,id):
+        return discogsObject.Label(self.retrieve_page(self.base_url + r"/labels/" + str(id)),self)

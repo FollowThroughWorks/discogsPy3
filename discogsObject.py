@@ -1,6 +1,7 @@
 __author__ = 'Mike'
 import json
 import discogsPy3
+import time
 
 class DiscogsObject():
     def __init__(self,page):
@@ -87,3 +88,39 @@ class Release(DiscogsObject):
         final_artists = []
         this_artist = self.client.artist_by_id(self.artists[0]['id'])
         return this_artist
+
+    def label_list(self):
+        final_labels = []
+        for item in self.labels:
+            try:
+                new_label = self.client.label_by_id(item['id'])
+                final_labels.append(new_label)
+            except:
+                pass
+        return final_labels
+
+class Label(DiscogsObject):
+    def __init__(self,page,client):
+        DiscogsObject.__init__(self,page)
+        self.client = client
+
+    def releases(self,pages=1):
+        final_releases = []
+
+        release_page = self.client.retrieve_page(self.resource_url + "/releases")
+        releases = json.loads(release_page)
+        max_pages = releases['pagination']['pages']
+        if pages > max_pages:
+            pages = max_pages
+
+        for x in range(0,pages):
+            release_page = self.client.retrieve_page(self.resource_url + "/releases?page=" + str(x))
+            releases = json.loads(release_page)
+            for item in releases['releases']:
+                try:
+                    new_release =  self.client.release_by_id(item['id'])
+                    final_releases.append(new_release)
+                    time.sleep(1)
+                except:
+                    pass
+        return final_releases
