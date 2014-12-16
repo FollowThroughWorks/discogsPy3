@@ -4,26 +4,32 @@ discogsPy3
 Library for using the discogs API with Python 
 requires oauth1forpy3 
 
-### Creating the authenticated connection to discogs:
-  1. Create an instance of the Client object. You must have:
-      * a consumer key and secret, received from the site you're accessing
-      * a user agent
+### Creating the (optionally authenticated) connection to discogs:
+  1. Create an instance of the Client object:
+      * You must have a user agent, preferably following [RFC 1945](http://tools.ietf.org/html/rfc1945#section-3.7)
+      * If you are searching or using user information you must also included the consumer key and secret
+```
+d = discogsPy3.Client(user_agent,consumer_key,consumer_secret) # Consumer key and secret are optional
+```
   2. 
      1. If you already have an access key and secret:
       * Client.set_access_token(your key,your secret)
      2. Else 
       * call Client.set_access_token() and it will use the consumer key and secret to acquire them
       * (if you want to then get the access token and secret for further use, call .access_token and .access_token_secret)
-
+```
+>>d.set_access_token() 
+>> d.access_token
+your access token
+>> d.access_token_secret
+your access token secret
+```
 ### Accessing discogs info
 There are objects for:
 * Artists
 * Releases
 * Master Releases
-```
-d = discogsPy3.Client(consumer_key,consumer_secret,user_agent)
-d.set_access_token()
-```
+
 #### Artists
 To get an artist by their site id:
 ```
@@ -67,6 +73,7 @@ A list of Artist properties and methods:
 * **name** - the artist's/band's name
 * **profile** - a description of the artist
 * **urls** - a list of the artist's web pages
+* **releases()** - a list of the artist's releases as Release objects
 * **members** - a list comprised of a dictionary of info for each member
 * **member_list()** - a list of Artist objects for each member
 * **groups** - a list comprised of a dictionary of info for each group the artist has performed with
@@ -74,13 +81,14 @@ A list of Artist properties and methods:
 * **namevariations** - variations of the artist's name
 * **images** - a list comprised of a dictionary of info for each image associated with the artist
 * **data** - A dictionary of the information provided by discogs.com
+* **id** - The artist id on discogs.com
 * **resource_url** - where the discogs.com info can be found
 
 #### Releases
-Works similarly to artists:
-To get by site id:
-`fot = d.release_by_id(381567)`
-
+To get a release by site id:
+```
+first_temple = d.release_by_id(2692576)
+```
 Once you have a release, you can access its information like normal attributes:
 ```
 >>> CLPPNG.title
@@ -107,3 +115,15 @@ To retrieve a list of artists as Artist objects (in case multiple worked on a re
 By The End Of Tonight
 Tera Melos
 ```
+#### Labels
+
+A list of Label properties and methods:
+* **name** - the label's name
+* **profile** - a description of the label
+* **contact_info** - the label's contact info
+* **urls** - a list of the label's web pages
+* **releases()** - a list of the label's releases as Release objects
+* **images** - a list comprised of a dictionary of info for each image associated with the artist
+* **data** - A dictionary of the information provided by discogs.com
+* **id** - The label id on discogs.com
+* **resource_url** - where the discogs.com info can be found
