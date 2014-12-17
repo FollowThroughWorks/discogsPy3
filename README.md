@@ -126,7 +126,10 @@ A list of Release properties and methods:
 * **artist_list()** - A list of artists on the release, as Artist objects
 * **artist()** - The first (or sometimes only) artist on a release, as an Artist object; mostly a shortcut
 * **label_list** - A list of labels the release was released under, as Label objects
-* 
+* * **data** - A dictionary of the information provided by discogs.com
+* **id** - The artist id on discogs.com
+* **resource_url** - where the discogs.com info can be found
+
 #### Labels
 
 A list of Label properties and methods:
