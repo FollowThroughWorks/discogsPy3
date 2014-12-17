@@ -115,6 +115,18 @@ To retrieve a list of artists as Artist objects (in case multiple worked on a re
 By The End Of Tonight
 Tera Melos
 ```
+
+A list of Release properties and methods:
+* **title** - the title of the release
+* **year** - the year of the title's release
+* **styles** - the style of the release
+* **genres** - the genre of the release
+* **notes** - information about the release
+* **tracklist** - a list of one dictionary per track on the release
+* **artist_list()** - A list of artists on the release, as Artist objects
+* **artist()** - The first (or sometimes only) artist on a release, as an Artist object; mostly a shortcut
+* **label_list** - A list of labels the release was released under, as Label objects
+* 
 #### Labels
 
 A list of Label properties and methods:
