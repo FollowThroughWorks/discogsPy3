@@ -33,3 +33,13 @@ class Client(oauth1forpy3.Client):
 
     def label_by_id(self,id):
         return discogsObject.Label(self.retrieve_page(self.base_url + r"/labels/" + str(id)),self)
+
+    def search(self,query,search_type=""):
+        new_name = str.replace(query," ","+")
+        search_results = self.retrieve_page(self.base_url + r"/database/search?q=" + new_name + r"&type=" + search_type)
+        try:
+            results = json.loads(search_results)['results']
+            return results
+        except(IndexError):
+            print("No result found")
+            return None
