@@ -24,6 +24,7 @@ class Artist(DiscogsObject):
             try:
                 new_release =  self.client.release_by_id(item['main_release'])
                 final_releases.append(new_release)
+                time.sleep(1)
             except:
                 pass
         return final_releases
@@ -34,6 +35,7 @@ class Artist(DiscogsObject):
             try:
                 new_group = self.client.artist_by_id(item['id'])
                 final_groups.append(new_group)
+                time.sleep(1)
             except:
                 pass
         return final_groups
@@ -44,6 +46,7 @@ class Artist(DiscogsObject):
             try:
                 new_member = self.client.artist_by_id(item['id'])
                 final_members.append(new_member)
+                time.sleep(1)
             except:
                 pass
         return final_members
@@ -60,6 +63,7 @@ class Master(DiscogsObject):
             try:
                 new_artist = self.client.artist_by_id(item['id'])
                 final_artists.append(new_artist)
+                time.sleep(1)
             except:
                 pass
         return final_artists
@@ -80,6 +84,7 @@ class Release(DiscogsObject):
             try:
                 new_artist = self.client.artist_by_id(item['id'])
                 final_artists.append(new_artist)
+                time.sleep(1)
             except:
                 pass
         return final_artists
@@ -95,6 +100,7 @@ class Release(DiscogsObject):
             try:
                 new_label = self.client.label_by_id(item['id'])
                 final_labels.append(new_label)
+                time.sleep(1)
             except:
                 pass
         return final_labels
